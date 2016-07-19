@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http//mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.blade.admin.mapper.KeyWordMapper">
+
+	<sql id = "selectKeyWordColumns">
+		`ID`              as "id",
+		`PARENTID`        as "parentId",
+		`NAME`            as "name",
+		`TYPE`            as "type",
+		`PATH`            as "path",
+		`URL`             as "url"
+	</sql>
+
+	<select id="selectById" resultType="org.blade.admin.entity.KeyWord">
+		select <include refid="selectKeyWordColumns"/> from T_PLAN_GROUP_KEYWORD r
+		where r.id = #{id}
+	</select>
+
+	<insert id="insertOne" parameterType="org.blade.admin.entity.KeyWord" useGeneratedKeys="true" keyProperty="id">
+		insert into `T_PLAN_GROUP_KEYWORD`
+		(
+		  `PARENTID`,
+		  `NAME`,
+		  `TYPE`,
+		  `PATH`,
+		  `URL`
+		)
+		values(
+		  #{PARENTID},
+		  #{NAME},
+		  #{TYPE},
+		  #{PATH},
+		  #{URL}
+		);
+	</insert>
+	
+	<insert id="insert" parameterType="org.blade.admin.entity.KeyWord" useGeneratedKeys="true" keyProperty="id">
+		insert into `T_PLAN_GROUP_KEYWORD`
+		(
+		  `PARENTID`,
+		  `NAME`,
+		  `TYPE`,
+		  `PATH`,
+		  `URL`
+		)values
+		<foreach collection="list" item="item" index="index" open="(" separator=","  close=")">  
+	         #{item.parentId}, 
+	         #{item.name}, 
+	         #{item.type}, 
+	         #{item.path},
+	         #{item.url} 
+	    </foreach>  
+	</insert>
+	
+	<select id="select" resultType="org.blade.admin.entity.KeyWord">
+		select <include refid="selectKeyWordColumns"/> from T_PLAN_GROUP_KEYWORD r
+		where 1=1
+		<if test="parentId != null and parentId != ''">
+			AND r.PARENTID = #{parentId} 
+		</if>
+		
+		<if test="path != null and path != ''">
+			AND r.PATH like '%'+#{path}+'%'
+		</if>
+		<if test="type != null and type != ''">
+			AND r.type = #{type}
+		</if>
+		<if test="name != null and name != ''">
+			AND r.NAME like '%'+#{name}+'%'
+		</if>
+	</select>
+
+</mapper>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.blade.admin.mapper.UserMapper">
+
+	<sql id="selectUserAndRole">
+		u.id AS "id",
+		u.name AS "name",
+		u.sex AS "sex",
+		u.type AS "type",
+		u.phone AS "phone",
+		u.age AS "age",
+		u.password AS "password",
+		u.uuid AS "uuid",
+		r.id AS "role.id",
+		r.name AS "role.name",
+		r.type AS "role.type",
+		r.uuid AS "role.uuid"
+	</sql>
+	
+	<sql id="selectUser">
+		u.id AS "id",
+		u.name AS "name",
+		u.sex AS "sex",
+		u.type AS "type",
+		u.phone AS "phone",
+		u.age AS "age",
+		u.password AS "password",
+		u.uuid AS "uuid"
+	
+	</sql>
+	
+	<sql id="leftJoinRole">
+		left join sys_role r on u.role_id = r.id 
+	</sql>
+	
+    <select id="selectById" resultType="org.blade.admin.entity.User">
+        select <include refid="selectUser"/> from sys_usr u where u.id = #{id}
+    </select>
+    
+    <select id="selectUserAndRoleById" resultType="org.blade.admin.entity.User">
+        select <include refid="selectUserAndRole"/> from sys_usr u 
+        <include refid="leftJoinRole"/>
+        where u.id = #{id}
+    </select>
+  
+  	<insert id="insert" >
+  		insert sys_usr (id,name,sex,type,phone,age,password,uuid)
+  		values(#{id},#{name},#{sex},#{type},#{phone},#{age}, #{password},#{uuid})
+  	</insert>
+  	
+  	 <select id="selectUserByNameAndPwd" resultType="org.blade.admin.entity.User">
+        select <include refid="selectUser"/> from sys_usr u 
+        where u.name = #{name} and u.password = #{pwd}
+    </select>
+  	
+    
+</mapper>
