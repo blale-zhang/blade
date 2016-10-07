@@ -1,25 +1,13 @@
 package org.blade.admin.entity;
 
-import java.util.Date;
+import org.blade.admin.entity.base.BaseEntity;
 
-public class Role {
+public class Role extends BaseEntity<Long>{
 
-	private Long id;
-	
 	private String name;
 	
 	private int type;
 	
-	private Date createdDate;
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
 	public String getName() {
 		return name;
 	}
@@ -36,12 +24,4 @@ public class Role {
 		this.type = type;
 	}
 
-	public Date getCreatedDate() {
-		return createdDate;
-	}
-
-	public void setCreatedDate(Date createdDate) {
-		this.createdDate = createdDate;
-	}
-	
 }

@@ -1,11 +1,13 @@
 package org.blade.admin.entity;
 
+import org.blade.admin.entity.base.BaseEntity;
+
 /**
  * 
  * @author blade
  *
  */
-public class User {
+public class User extends BaseEntity<Long>{
 
 	/**
 	 * 
@@ -16,10 +18,6 @@ public class User {
 
 	private String password;
 
-	private String uuid;
-
-	private String id;
-
 	private String name;
 
 	private Integer age;
@@ -28,21 +26,6 @@ public class User {
 
 	private Integer type;
 
-	public String getUuid() {
-		return uuid;
-	}
-
-	public void setUuid(String uuid) {
-		this.uuid = uuid;
-	}
-
-	public String getId() {
-		return id;
-	}
-
-	public void setId(String id) {
-		this.id = id;
-	}
 
 	public String getName() {
 		return name;

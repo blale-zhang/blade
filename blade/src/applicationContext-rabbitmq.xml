@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<!-- 创建connectionFactory -->
+	<bean id="connectionFactory"
+		class="org.springframework.amqp.rabbit.connection.SingleConnectionFactory">
+		<constructor-arg value="localhost" />
+		<property name="username" value="guest" />
+		<property name="password" value="guest" />
+	</bean>
+	<bean id="rabbitAdmin"
+		class="org.springframework.amqp.rabbit.core.RabbitAdmin">
+		<constructor-arg ref="connectionFactory" />
+	</bean>
+	<bean id="rabbitTemplate"
+		class="org.springframework.amqp.rabbit.core.RabbitTemplate">
+		<constructor-arg ref="connectionFactory"></constructor-arg>
+		<property name="queue" value="hello.world.queue"></property>
+		<property name="routingKey" value="hello.world.queue"></property>
+	</bean>
+
+	<!-- 声明Queue并设定Queue的名称 -->
+	<bean id="helloWorldQueue"
+		class="org.springframework.amqp.core.Queue">
+		<constructor-arg value="hello.world.queue"></constructor-arg>
+	</bean>
+	
+</beans>

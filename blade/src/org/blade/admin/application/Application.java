@@ -29,9 +29,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @Configuration
-@ComponentScan( basePackages = {"org.blade.admin"} )
+@ComponentScan( basePackages = {"org.blade"} )
 @ImportResource({
-		"classpath:applicationContext-mybatis.xml",
+	"classpath:applicationContext-mybatis.xml",
+//	"classpath:applicationContext-rabbitmq.xml",
 	"classpath:applicationContext-shiro.xml"})
 @EnableAutoConfiguration
 public class Application {
@@ -47,6 +48,7 @@ public class Application {
 	
 	@Resource
 	private SitePlaceAnalysisService sitePlaceAnalysisService;
+	
 	
     @RequestMapping("/")
     String home() {
@@ -98,7 +100,7 @@ public class Application {
     String hehe() {
         return "现在时间：" + (new Date()).toLocaleString();
     }
-
+    
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
     }
