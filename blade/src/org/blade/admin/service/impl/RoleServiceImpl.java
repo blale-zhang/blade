@@ -5,7 +5,7 @@ package org.blade.admin.service.impl;
 
 import javax.annotation.Resource;
 
-import org.blade.admin.entity.Role;
+import org.blade.admin.entity.sys.Role;
 import org.blade.admin.mapper.RoleMapper;
 import org.blade.admin.service.RoleService;
 import org.springframework.stereotype.Service;

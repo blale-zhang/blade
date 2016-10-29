@@ -14,7 +14,7 @@ import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.session.Session;
 import org.apache.shiro.subject.PrincipalCollection;
 import org.apache.shiro.subject.Subject;
-import org.blade.admin.entity.User;
+import org.blade.admin.entity.sys.User;
 import org.blade.admin.service.AuthorityService;
 import org.blade.admin.service.UserService;
 import org.springframework.stereotype.Component;

@@ -1,4 +1,4 @@
-package org.blade.admin.entity;
+package org.blade.admin.entity.sys;
 
 import org.blade.admin.entity.base.BaseEntity;
 

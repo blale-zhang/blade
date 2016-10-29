@@ -4,7 +4,7 @@ import javax.annotation.Resource;
 
 import org.apache.ibatis.session.SqlSession;
 import org.blade.admin.dao.UserDao;
-import org.blade.admin.entity.User;
+import org.blade.admin.entity.sys.User;
 import org.springframework.stereotype.Repository;
 
 @Repository

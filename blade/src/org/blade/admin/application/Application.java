@@ -13,7 +13,7 @@ import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.subject.Subject;
 import org.blade.admin.entity.KeyWord;
 import org.blade.admin.entity.SitePlaceAnalysis;
-import org.blade.admin.entity.User;
+import org.blade.admin.entity.sys.User;
 import org.blade.admin.service.KeyWordService;
 import org.blade.admin.service.RoleService;
 import org.blade.admin.service.SitePlaceAnalysisService;

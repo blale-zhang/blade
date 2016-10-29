@@ -3,7 +3,7 @@
  */
 package org.blade.admin.service;
 
-import org.blade.admin.entity.Role;
+import org.blade.admin.entity.sys.Role;
 
 /**
  * @author blade

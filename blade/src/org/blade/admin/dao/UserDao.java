@@ -1,6 +1,6 @@
 package org.blade.admin.dao;
 
-import org.blade.admin.entity.User;
+import org.blade.admin.entity.sys.User;
 
 public interface UserDao {
 

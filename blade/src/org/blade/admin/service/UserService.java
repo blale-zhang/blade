@@ -1,6 +1,6 @@
 package org.blade.admin.service;
 
-import org.blade.admin.entity.User;
+import org.blade.admin.entity.sys.User;
 
 /**
  * 

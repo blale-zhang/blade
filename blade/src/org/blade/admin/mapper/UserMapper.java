@@ -2,7 +2,7 @@ package org.blade.admin.mapper;
 
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
-import org.blade.admin.entity.User;
+import org.blade.admin.entity.sys.User;
 
 @Mapper
 public interface UserMapper {

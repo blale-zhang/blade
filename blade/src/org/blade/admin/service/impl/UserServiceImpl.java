@@ -2,7 +2,7 @@ package org.blade.admin.service.impl;
 
 import javax.annotation.Resource;
 
-import org.blade.admin.entity.User;
+import org.blade.admin.entity.sys.User;
 import org.blade.admin.mapper.UserMapper;
 import org.blade.admin.service.UserService;
 import org.springframework.stereotype.Service;

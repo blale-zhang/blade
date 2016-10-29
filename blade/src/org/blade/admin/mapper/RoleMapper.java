@@ -4,7 +4,7 @@
 package org.blade.admin.mapper;
 
 import org.apache.ibatis.annotations.Mapper;
-import org.blade.admin.entity.Role;
+import org.blade.admin.entity.sys.Role;
 
 /**
  * @author blade
