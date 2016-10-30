@@ -16,7 +16,7 @@
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
     <typeAliases>
-        <package name="org.blade.admin.entity"/>
+        <package name="org.blade.admin.*.entity"/>
     </typeAliases>
    <!--  <mappers>
         <mapper resource="/Users/blade/Documents/workspace/admin/src/main/UserMapper.xml"/>

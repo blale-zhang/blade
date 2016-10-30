@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http//mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.blade.admin.mapper.RoleMapper">
+
+
+	<sql id="baseColumn">
+		id as "id",
+		create_time as "createTime",
+		modify_time as "modifyTime",
+		uuid as "uuid"
+	</sql>
+
+	<sql id="seletColumn">
+		<include refid="baseColumn"/>,
+		uuid as "uuid",
+		price as "price",
+		name as "name",
+		count as "count",
+		merchant as "merchant"
+		remark as "remark"
+	</sql>
+
+	<select id="selectById" resultType="org.blade.admin.entity.biz.Goods">
+		select <include refid="seletColumn"/> from t_biz_goods r
+		where r.id = #{id}
+	</select>
+
+	<select id="select" resultType="org.blade.admin.entity.biz.Goods">
+		select <include refid="seletColumn"/> from t_biz_goods r
+		where
+		r.id = #{id}
+	</select>
+
+	<insert id="insert" parameterType="org.blade.admin.entity.biz.Goods"
+		useGeneratedKeys="true" keyProperty="id">
+		INSERT INTO t_biz_goods(
+		id,
+		create_time,
+		modify_time,
+		uuid,
+		price,
+		name,
+		count,
+		merchant,
+		remark 
+		)
+		VALUES
+		(
+		#{id},
+		#{createTime},
+		#{modifyTime},
+		#{uuid},
+		#{price},
+		#{name},
+		#{count},
+		#{merchant},
+		#{remark}
+		)
+	</insert>
+
+	<insert id="batchInsert" parameterType="org.blade.admin.entity.biz.Goods"
+		useGeneratedKeys="true" keyProperty="id">
+		INSERT INTO t_biz_goods(
+		id,
+		create_time,
+		modify_time,
+		uuid,
+		price,
+		name,
+		count,
+		merchant,
+		remark 
+		)
+		VALUES
+		<foreach collection="list" item="item" index="index" open="("
+			separator="," close=")">
+			#{id},
+			#{createTime},
+			#{modifyTime},
+			#{uuid},
+			#{price},
+			#{name},
+			#{count},
+			#{merchant},
+			#{remark}
+		</foreach>
+	</insert>
+
+	<delete id="deleteById" parameterType="long">
+		DELETE FROM t_biz_goods
+		WHERE id = #{id};
+	</delete>
+
+	<update id="updateById" parameterType="org.blade.admin.entity.biz.Goods" >
+		update t_biz_goods set 
+		<if test="price != null and price != ''">
+			price = #{price},
+		</if>
+		<if test="name != null and name != ''">
+				name = #{name},
+		</if>
+		<if test="count != null and count != ''">
+				count = #{count},
+		</if>
+		<if test="merchant != null and merchant != ''">
+				merchant = #{merchant},
+		</if>
+		<if test="remark != null and remark != ''">
+				remark = #{remark},
+		</if>
+		<if test="modifyTime != null and modifyTime != ''">
+				modify_time = #{modifyTime}
+		</if>
+		where id= #{id} 
+	</update>
+	
+	<update id="batchUpdate" parameterType="org.blade.admin.entity.biz.Goods" >
+	
+		<foreach collection="list" item="item" index="index" >
+			update t_biz_goods set 
+			<if test="price != null and price != ''">
+				price = #{price},
+			</if>
+			<if test="name != null and name != ''">
+					name = #{name},
+			</if>
+			<if test="count != null and count != ''">
+					count = #{count},
+			</if>
+			<if test="merchant != null and merchant != ''">
+					merchant = #{merchant},
+			</if>
+			<if test="remark != null and remark != ''">
+					remark = #{remark},
+			</if>
+			<if test="modifyTime != null and modifyTime != ''">
+					modify_time = #{modifyTime}
+			</if>
+			where id= #{id} 
+		</foreach>
+	</update>
+	
+	
+	
+</mapper>

@@ -3,22 +3,32 @@
  */
 package org.blade.admin.entity.biz;
 
-import org.blade.admin.entity.base.BaseEntity;
+import java.util.List;
 
 /**
  * @author blade
  *
  */
-public class Goods extends BaseEntity<String> {
+public class Goods extends Item {
 
 	private double price;
 	
 	private String name;
 	
-	private String picture;
+	private List<GoodsPicture> goodsPictures;
 	
 	private long count;
 	
+	private String merchant;
+	
+
+	public String getMerchant() {
+		return merchant;
+	}
+
+	public void setMerchant(String merchant) {
+		this.merchant = merchant;
+	}
 
 	public long getCount() {
 		return count;
@@ -44,14 +54,12 @@ public class Goods extends BaseEntity<String> {
 		this.name = name;
 	}
 
-	public String getPicture() {
-		return picture;
+	public List<GoodsPicture> getGoodsPictures() {
+		return goodsPictures;
 	}
 
-	public void setPicture(String picture) {
-		this.picture = picture;
+	public void setGoodsPictures(List<GoodsPicture> goodsPictures) {
+		this.goodsPictures = goodsPictures;
 	}
-	
-	
-	
+
 }

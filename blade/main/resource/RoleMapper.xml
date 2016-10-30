@@ -4,12 +4,12 @@
         "http//mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.blade.admin.mapper.RoleMapper">
 
-	<select id="selectById" resultType="org.blade.admin.entity.Role">
+	<select id="selectById" resultType="org.blade.admin.entity.sys.Role">
 		select * from sys_role r
 		where r.id = #{id}
 	</select>
 
-	<insert id="insert" parameterType="org.blade.admin.entity.Role" useGeneratedKeys="true" keyProperty="id">
+	<insert id="insert" parameterType="org.blade.admin.entity.sys.Role" useGeneratedKeys="true" keyProperty="id">
 		INSERT INTO sys_role(
 		type,
 		name,

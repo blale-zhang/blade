@@ -12,9 +12,9 @@ public class BaseEntity<ID> {
 
 	private ID id;
 	
-	private Date createDate;
+	private Date createTime;
 	
-	private Date modifyDate;
+	private Date modifyTime;
 	
 	private String uuid;
 
@@ -26,20 +26,20 @@ public class BaseEntity<ID> {
 		this.id = id;
 	}
 
-	public Date getCreateDate() {
-		return createDate;
+	public Date getCreateTime() {
+		return createTime;
 	}
 
-	public void setCreateDate(Date createDate) {
-		this.createDate = createDate;
+	public void setCreateTime(Date createTime) {
+		this.createTime = createTime;
 	}
 
-	public Date getModifyDate() {
-		return modifyDate;
+	public Date getModifyTime() {
+		return modifyTime;
 	}
 
-	public void setModifyDate(Date modifyDate) {
-		this.modifyDate = modifyDate;
+	public void setModifyTime(Date modifyTime) {
+		this.modifyTime = modifyTime;
 	}
 
 	public String getUuid() {
