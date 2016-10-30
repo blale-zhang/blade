@@ -4,6 +4,8 @@
 	<groupId>blade</groupId>
 	<artifactId>blade</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	
+	<packaging>pom</packaging>
 	<build>
 		<sourceDirectory>src</sourceDirectory>
 		<plugins>
@@ -238,4 +240,8 @@
 			<url>http://repo.spring.io/milestone</url>
 		</pluginRepository>
 	</pluginRepositories>
+	<modules>
+		<module>merchain</module>
+		<module>blade.base</module>
+	</modules>
 </project>

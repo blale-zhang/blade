@@ -2,8 +2,6 @@ package org.blade.admin.mapper.base;
 
 import java.util.List;
 
-import org.blade.admin.entity.base.BaseEntity;
-
 /**
  * 基础Mapper,包含基础操作
  * @author blade

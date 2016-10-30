@@ -16,6 +16,7 @@ public class Item extends BaseEntity<String> {
 	 */
 	private String remark;
 
+//	private Page page;
 
 	public String getRemark() {
 		return remark;

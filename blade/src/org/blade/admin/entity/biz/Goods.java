@@ -21,6 +21,7 @@ public class Goods extends Item {
 	
 	private String merchant;
 	
+	
 
 	public String getMerchant() {
 		return merchant;
