@@ -1,7 +1,7 @@
 package org.blade.admin.mapper.biz;
 
 import org.blade.admin.entity.biz.Order;
-import org.blade.admin.mapper.base.BeseMapper;
+import org.blade.admin.mapper.BeseMapper;
 
 /**
  * 订单mapper
