@@ -11,7 +11,7 @@ import org.blade.admin.entity.base.BaseEntity;
  * @param <ID>
  * @param <T>
  */
-public interface BeseMapper<ID,T extends BaseEntity<ID>> {
+public interface BaseMapper<ID,T extends BaseEntity<ID>> {
 
 	/**
 	 * 根据Id查询

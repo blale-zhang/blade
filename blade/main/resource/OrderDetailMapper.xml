@@ -2,13 +2,12 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http//mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="org.blade.admin.mapper.biz.GoodsMapper">
+<mapper namespace="org.blade.admin.mapper.biz.OrderDetailMapper">
 
 	<sql id="baseColumn">
 		id as "id",
 		create_time as "createTime",
-		modify_time as
-		"modifyTime",
+		modify_time as "modifyTime",
 		uuid as "uuid"
 	</sql>
 
@@ -16,40 +15,38 @@
 		<include refid="baseColumn" />
 		,
 		price as "price",
-		name as "name",
-		count as "count",
-		merchant as
-		"merchant",
-		remark as "remark"
+		order_id as "order.id",
+		goods_id as "goods.id",
+		count as "count"
 	</sql>
 
 
-	<select id="selectById" resultType="org.blade.admin.entity.biz.Goods">
+	<select id="selectById" resultType="org.blade.admin.entity.biz.OrderDetail">
 		select
 		<include refid="seletColumn" />
-		from t_biz_goods r
+		from t_biz_order_detail r
 		where r.id = #{id}
 	</select>
 
-	<select id="select" resultType="org.blade.admin.entity.biz.Goods">
+	<select id="select" resultType="org.blade.admin.entity.biz.OrderDetail">
 		select
 		<include refid="seletColumn" />
-		from t_biz_goods r
+		from t_biz_order_detail r
 		where
 		r.id = #{id}
 	</select>
 
-	<insert id="insert" parameterType="org.blade.admin.entity.biz.Goods"
+	<insert id="insert" parameterType="org.blade.admin.entity.biz.OrderDetail"
 		useGeneratedKeys="true" keyProperty="id">
-		INSERT INTO t_biz_goods(
+		INSERT INTO t_biz_order_detail(
 		id,
 		create_time,
 		modify_time,
 		uuid,
 		price,
-		name,
+		order_id,
+		goods_id,
 		count,
-		merchant,
 		remark
 		)
 		VALUES
@@ -66,9 +63,9 @@
 		)
 	</insert>
 
-	<insert id="batchInsert" parameterType="org.blade.admin.entity.biz.Goods"
+	<insert id="batchInsert" parameterType="org.blade.admin.entity.biz.OrderDetail"
 		useGeneratedKeys="true" keyProperty="id">
-		INSERT INTO t_biz_goods(
+		INSERT INTO t_biz_order_detail(
 		id,
 		create_time,
 		modify_time,
@@ -95,12 +92,12 @@
 	</insert>
 
 	<delete id="deleteById" parameterType="long">
-		DELETE FROM t_biz_goods
+		DELETE FROM t_biz_order_detail
 		WHERE id = #{id};
 	</delete>
 
-	<update id="updateById" parameterType="org.blade.admin.entity.biz.Goods">
-		update t_biz_goods set
+	<update id="updateById" parameterType="org.blade.admin.entity.biz.OrderDetail">
+		update t_biz_order_detail set
 		<if test="price != null and price != ''">
 			price = #{price},
 		</if>
@@ -122,10 +119,10 @@
 		where id= #{id}
 	</update>
 
-	<update id="batchUpdate" parameterType="org.blade.admin.entity.biz.Goods">
+	<update id="batchUpdate" parameterType="org.blade.admin.entity.biz.OrderDetail">
 
 		<foreach collection="list" item="item" index="index">
-			update t_biz_goods set
+			update t_biz_order_detail set
 			<if test="price != null and price != ''">
 				price = #{price},
 			</if>

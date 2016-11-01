@@ -77,4 +77,15 @@ public class OrderDetail extends BaseEntity<String> {
 		this.count = count;
 	}
 	
+	public void setOrderId(String id){
+		
+		this.order = new Order();
+		this.order.setId(id);
+	}
+	
+	public void setGoodsId(String id){
+		this.goods = new Goods();
+		this.goods.setId(id);
+	}
+	
 }
