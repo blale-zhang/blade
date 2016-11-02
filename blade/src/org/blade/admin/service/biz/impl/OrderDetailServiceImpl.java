@@ -3,6 +3,8 @@
  */
 package org.blade.admin.service.biz.impl;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.blade.admin.entity.biz.OrderDetail;
@@ -57,6 +59,11 @@ public class OrderDetailServiceImpl implements OrderDetailService {
 	@Transactional
 	public int deleteById(String id) {
 		return orderDetailMapper.deleteById(id);
+	}
+
+	@Override
+	public int batchSave(List<OrderDetail> entities) {
+		return orderDetailMapper.batchInsert(entities);
 	}
 
 }

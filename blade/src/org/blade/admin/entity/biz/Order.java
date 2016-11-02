@@ -3,7 +3,7 @@ package org.blade.admin.entity.biz;
 import org.blade.admin.entity.base.BaseEntity;
 
 /**
- * 
+ * 订单实体
  * @author blade
  *
  */
@@ -11,7 +11,11 @@ public class Order extends BaseEntity<String>{
 
 	
 	public static int STATUS_NEW = 1;
-	public static int STATUS_FINISH = 2;
+	public static int STATUS_FINISH = 99;
+	
+	public Order(){
+		this.status = STATUS_NEW;
+	}
 	
 	private double totalPrice ;
 	

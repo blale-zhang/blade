@@ -3,7 +3,9 @@
  */
 package org.blade.admin.application;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import javax.annotation.Resource;
 
@@ -60,5 +62,31 @@ public class OrderDetailController {
 	@RequestMapping("/biz/orderDetail/query")
 	public OrderDetail query() {
 		return orderDetailService.queryById("53c949bf-6408-4e2b-8ffd-e881a02c90dc");
+	}
+	
+	/**
+	 * 查询
+	 * @return
+	 */
+	@RequestMapping("/biz/orderDetail/batchSave")
+	public int batchSave(){
+		List<OrderDetail> entities = new ArrayList<OrderDetail>();
+		OrderDetail orderDetail = new OrderDetail();
+		orderDetail.setCount(101);
+		orderDetail.setId(CodeUtils.generateUUID());
+		orderDetail.setModifyTime(new Date());
+		orderDetail.setOrderId(CodeUtils.generateUUID());
+		orderDetail.setPrice(9.8D);
+		orderDetail.setOrderId(CodeUtils.generateUUID());
+		
+		OrderDetail orderDetail2 = new OrderDetail();
+		orderDetail2.setCount(101);
+		orderDetail2.setId(CodeUtils.generateUUID());
+		orderDetail2.setModifyTime(new Date());
+		orderDetail2.setOrderId(CodeUtils.generateUUID());
+		orderDetail2.setPrice(9.8D);
+		orderDetail2.setOrderId(CodeUtils.generateUUID());
+		
+		return orderDetailService.batchSave(entities);
 	}
 }
