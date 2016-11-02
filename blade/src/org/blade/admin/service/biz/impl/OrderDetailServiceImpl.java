@@ -9,6 +9,7 @@ import org.blade.admin.entity.biz.OrderDetail;
 import org.blade.admin.mapper.biz.OrderDetailMapper;
 import org.blade.admin.service.biz.OrderDetailService;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * 订单详情service
@@ -26,6 +27,7 @@ public class OrderDetailServiceImpl implements OrderDetailService {
 	 * @see org.blade.admin.service.base.BaseService#save(org.blade.admin.entity.base.BaseEntity)
 	 */
 	@Override
+	@Transactional
 	public int save(OrderDetail entity) {
 		return orderDetailMapper.insert(entity);
 	}
@@ -34,6 +36,7 @@ public class OrderDetailServiceImpl implements OrderDetailService {
 	 * @see org.blade.admin.service.base.BaseService#updateById(org.blade.admin.entity.base.BaseEntity)
 	 */
 	@Override
+	@Transactional
 	public int updateById(OrderDetail entity) {
 		return orderDetailMapper.updateById(entity);
 	}
@@ -51,6 +54,7 @@ public class OrderDetailServiceImpl implements OrderDetailService {
 	 * @see org.blade.admin.service.base.BaseService#deleteById(java.lang.String)
 	 */
 	@Override
+	@Transactional
 	public int deleteById(String id) {
 		return orderDetailMapper.deleteById(id);
 	}

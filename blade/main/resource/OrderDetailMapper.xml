@@ -17,7 +17,8 @@
 		price as "price",
 		order_id as "order.id",
 		goods_id as "goods.id",
-		count as "count"
+		count
+		as "count"
 	</sql>
 
 
@@ -46,8 +47,7 @@
 		price,
 		order_id,
 		goods_id,
-		count,
-		remark
+		count
 		)
 		VALUES
 		(
@@ -56,10 +56,9 @@
 		#{modifyTime},
 		#{uuid},
 		#{price},
-		#{name},
-		#{count},
-		#{merchant},
-		#{remark}
+		#{order.id},
+		#{goods.id},
+		#{count}
 		)
 	</insert>
 
@@ -71,10 +70,9 @@
 		modify_time,
 		uuid,
 		price,
-		name,
-		count,
-		merchant,
-		remark
+		order_id,
+		goods_id,
+		count
 		)
 		VALUES
 		<foreach collection="list" item="item" index="index" open="("
@@ -84,15 +82,15 @@
 			#{modifyTime},
 			#{uuid},
 			#{price},
-			#{name},
-			#{count},
-			#{merchant},
-			#{remark}
+			#{order.id},
+			#{goods.id},
+			#{count}
 		</foreach>
 	</insert>
 
 	<delete id="deleteById" parameterType="long">
-		DELETE FROM t_biz_order_detail
+		DELETE FROM
+		t_biz_order_detail
 		WHERE id = #{id};
 	</delete>
 
@@ -101,17 +99,8 @@
 		<if test="price != null and price != ''">
 			price = #{price},
 		</if>
-		<if test="name != null and name != ''">
-			name = #{name},
-		</if>
 		<if test="count != null and count != ''">
 			count = #{count},
-		</if>
-		<if test="merchant != null and merchant != ''">
-			merchant = #{merchant},
-		</if>
-		<if test="remark != null and remark != ''">
-			remark = #{remark},
 		</if>
 		<if test="modifyTime != null">
 			modify_time = #{modifyTime}
@@ -126,17 +115,8 @@
 			<if test="price != null and price != ''">
 				price = #{price},
 			</if>
-			<if test="name != null and name != ''">
-				name = #{name},
-			</if>
 			<if test="count != null and count != ''">
 				count = #{count},
-			</if>
-			<if test="merchant != null and merchant != ''">
-				merchant = #{merchant},
-			</if>
-			<if test="remark != null and remark != ''">
-				remark = #{remark},
 			</if>
 			<if test="modifyTime != null">
 				modify_time = #{modifyTime}
