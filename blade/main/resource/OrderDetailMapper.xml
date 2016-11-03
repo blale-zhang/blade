@@ -37,8 +37,7 @@
 		r.id = #{id}
 	</select>
 
-	<insert id="insert" parameterType="org.blade.admin.entity.biz.OrderDetail"
-		useGeneratedKeys="true" keyProperty="id">
+	<insert id="insert" parameterType="org.blade.admin.entity.biz.OrderDetail">
 		INSERT INTO t_biz_order_detail(
 		id,
 		create_time,
@@ -62,8 +61,7 @@
 		)
 	</insert>
 
-	<insert id="batchInsert" parameterType="org.blade.admin.entity.biz.OrderDetail"
-		useGeneratedKeys="true" keyProperty="id">
+	<insert id="batchInsert" parameterType="org.blade.admin.entity.biz.OrderDetail">
 		INSERT INTO t_biz_order_detail(
 		id,
 		create_time,
@@ -75,15 +73,18 @@
 		count
 		)
 		VALUES
-		<foreach collection="list" item="item" index="index" open="(" separator=","  close=")">  
-			#{id},
-			#{createTime},
-			#{modifyTime},
-			#{uuid},
-			#{price},
-			#{order.id},
-			#{goods.id},
-			#{count}
+		<foreach collection="list" item="item" index="index"  separator=","  >  
+			(
+			#{item.id},
+			#{item.createTime},
+			#{item.modifyTime},
+			#{item.uuid},
+			#{item.price},
+			#{item.order.id},
+			#{item.goods.id},
+			#{item.count}
+			)
+			
 		</foreach>
 	</insert>
 

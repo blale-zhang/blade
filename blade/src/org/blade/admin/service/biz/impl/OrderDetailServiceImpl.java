@@ -62,6 +62,7 @@ public class OrderDetailServiceImpl implements OrderDetailService {
 	}
 
 	@Override
+	@Transactional
 	public int batchSave(List<OrderDetail> entities) {
 		return orderDetailMapper.batchInsert(entities);
 	}

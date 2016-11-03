@@ -75,17 +75,23 @@ public class OrderDetailController {
 		orderDetail.setCount(101);
 		orderDetail.setId(CodeUtils.generateUUID());
 		orderDetail.setModifyTime(new Date());
+		orderDetail.setCreateTime(new Date());
+		orderDetail.setPrice(10.8);
 		orderDetail.setOrderId(CodeUtils.generateUUID());
-		orderDetail.setPrice(9.8D);
-		orderDetail.setOrderId(CodeUtils.generateUUID());
-		
+		orderDetail.setGoodsId(CodeUtils.generateUUID());
+		orderDetail.setUuid(CodeUtils.generateUUID());
+		entities.add(orderDetail);
 		OrderDetail orderDetail2 = new OrderDetail();
 		orderDetail2.setCount(101);
 		orderDetail2.setId(CodeUtils.generateUUID());
 		orderDetail2.setModifyTime(new Date());
-		orderDetail2.setOrderId(CodeUtils.generateUUID());
+		orderDetail2.setCreateTime(new Date());
 		orderDetail2.setPrice(9.8D);
 		orderDetail2.setOrderId(CodeUtils.generateUUID());
+		orderDetail2.setGoodsId(CodeUtils.generateUUID());
+		orderDetail2.setUuid(CodeUtils.generateUUID());
+		entities.add(orderDetail2);
+
 		
 		return orderDetailService.batchSave(entities);
 	}
